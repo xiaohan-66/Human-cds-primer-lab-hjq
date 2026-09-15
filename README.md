@@ -1,12 +1,12 @@
-<p align="center"><img src="docs/assets/cover.svg" width="100%" alt="Human CDS Primer Lab — 人源完整 CDS 引物设计工作台" /></p>
+<p align="center"><img src="docs/assets/cover.svg" width="100%" alt="棱序 Primer Studio — 人源完整 CDS 引物设计工作台" /></p>
 
 <div align="center">
 
-### 把重复的分子克隆准备，组织成可复核的科研工作流。
+### 棱序 Primer Studio · 人源完整 CDS 引物设计
 
 人源转录本检索 · 完整 CDS 引物设计 · 批量质量筛查 · 配对特异性分析
 
-**[访问原网站 ↗](https://human-cds-primer-throughput-lab.lwhjq6666.chatgpt.site/)** · **[快速开始](#本地运行)** · **[核心代码](#代码导览)** · **[验证记录](VALIDATION.md)**
+**[50 目标工作台 ↗](https://human-cds-primer-throughput-lab.lwhjq6666.chatgpt.site/)** · **[快速开始](#本地运行)** · **[核心代码](#代码导览)** · **[验证记录](VALIDATION.md)**
 
 <sub>TypeScript / React 19 / vinext / Cloudflare Workers + D1</sub>
 
@@ -17,6 +17,25 @@
 <table>
 <tr><td align="center" width="25%"><h3>50</h3>每批最多目标数</td><td align="center" width="25%"><h3>5</h3>每目标最多候选对</td><td align="center" width="25%"><h3>2</h3>完整 CDS 扩增模式</td><td align="center" width="25%"><h3>CSV</h3>结构化结果导出</td></tr>
 </table>
+
+## 三种通量 · 按任务规模选择
+
+| 版本 | 在线入口 | 适用场景 | 代码与边界 |
+| :--- | :--- | :--- | :--- |
+| **01 · 单基因** | [进入单基因工作台 ↗](https://human-cds-primer-throughput-lab.lwhjq6666.chatgpt.site/single) | 对一个基因逐步选择转录本、设置参数并查看候选 | 本仓库 [app/single](app/single/page.tsx)；不是 50 目标队列 |
+| **10 · 批量版** | [进入 10 目标工作台 ↗](https://human-cds-primer-batch-lab.lwhjq6666.chatgpt.site/) | 小规模候选基因筛选，逐项确认转录本与整理结果 | 独立部署的批量版本；本仓库根目录不是该版本的完整源码 |
+| **50 · 高通量** | [进入 50 目标工作台 ↗](https://human-cds-primer-throughput-lab.lwhjq6666.chatgpt.site/) | 较大规模引物准备，分批查看、暂停恢复和统一导出 | 本仓库根目录的实现；每目标最多 5 对候选 |
+
+三个入口使用统一的 **棱序 Primer Studio** 导航。单基因入口是高通量站点内的 `/single` 页面；10 目标与 50 目标工作台分别部署。不同部署的任务历史不互通，站点访问仍受原网站权限设置影响。
+
+## 本次更新 · 2026.09.15
+
+- **统一品牌与导航**：新增共享导航组件，明确标识 1 / 10 / 50 三种通量及当前版本。
+- **新版工作台布局**：更新标题区、容量摘要、单基因界面与结果区样式。
+- **结果浏览优化**：高通量版简化候选展示，采用底部分页浏览目标结果。
+- **保留科学边界**：本次界面同步不改变引物算法和 BLAST 风险规则；各项能力以实际版本代码为准。
+
+源码来源：高通量工作台 `72b8abc`；10 目标版入口和导航依据其 `617e2b1` 版本核对。
 
 ## 为什么做这个工具
 
@@ -132,4 +151,5 @@ npm run build
 ## 项目状态
 
 该仓库整理自现有引物设计网站源码。最新本地自动优化修改也包含在内，可能晚于线上部署版本。项目展示应以当前源码与验证记录为准。
+
 
