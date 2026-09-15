@@ -1,0 +1,245 @@
+{
+  "reference": "Biopython 1.88 DNA_NN3 / saltcorr5",
+  "rows": [
+    {
+      "sequence": "GAAAGCTCGGAGCAGAAGCC",
+      "conditions": {
+        "monovalent": 50,
+        "magnesium": 1.5,
+        "dntp": 0.6,
+        "dna": 50
+      },
+      "tm": 61.365367967529096
+    },
+    {
+      "sequence": "GAAAGCTCGGAGCAGAAGCC",
+      "conditions": {
+        "monovalent": 10,
+        "magnesium": 0,
+        "dntp": 0,
+        "dna": 50
+      },
+      "tm": 48.21244397520303
+    },
+    {
+      "sequence": "GAAAGCTCGGAGCAGAAGCC",
+      "conditions": {
+        "monovalent": 100,
+        "magnesium": 2,
+        "dntp": 0.8,
+        "dna": 500
+      },
+      "tm": 66.33340777869012
+    },
+    {
+      "sequence": "GAAAGCTCGGAGCAGAAGCC",
+      "conditions": {
+        "monovalent": 50,
+        "magnesium": 0.2,
+        "dntp": 0.8,
+        "dna": 100
+      },
+      "tm": 56.58786790020389
+    },
+    {
+      "sequence": "AGCTCTGACGTCACCAGGGT",
+      "conditions": {
+        "monovalent": 50,
+        "magnesium": 1.5,
+        "dntp": 0.6,
+        "dna": 50
+      },
+      "tm": 63.0038058224236
+    },
+    {
+      "sequence": "AGCTCTGACGTCACCAGGGT",
+      "conditions": {
+        "monovalent": 10,
+        "magnesium": 0,
+        "dntp": 0,
+        "dna": 50
+      },
+      "tm": 49.304333899757864
+    },
+    {
+      "sequence": "AGCTCTGACGTCACCAGGGT",
+      "conditions": {
+        "monovalent": 100,
+        "magnesium": 2,
+        "dntp": 0.8,
+        "dna": 500
+      },
+      "tm": 68.18894933413969
+    },
+    {
+      "sequence": "AGCTCTGACGTCACCAGGGT",
+      "conditions": {
+        "monovalent": 50,
+        "magnesium": 0.2,
+        "dntp": 0.8,
+        "dna": 100
+      },
+      "tm": 58.02304963571402
+    },
+    {
+      "sequence": "ACGTACGTACGTACGTACGT",
+      "conditions": {
+        "monovalent": 50,
+        "magnesium": 1.5,
+        "dntp": 0.6,
+        "dna": 50
+      },
+      "tm": 59.597489972131484
+    },
+    {
+      "sequence": "ACGTACGTACGTACGTACGT",
+      "conditions": {
+        "monovalent": 10,
+        "magnesium": 0,
+        "dntp": 0,
+        "dna": 50
+      },
+      "tm": 46.689182353316255
+    },
+    {
+      "sequence": "ACGTACGTACGTACGTACGT",
+      "conditions": {
+        "monovalent": 100,
+        "magnesium": 2,
+        "dntp": 0.8,
+        "dna": 500
+      },
+      "tm": 64.46945804843511
+    },
+    {
+      "sequence": "ACGTACGTACGTACGTACGT",
+      "conditions": {
+        "monovalent": 50,
+        "magnesium": 0.2,
+        "dntp": 0.8,
+        "dna": 100
+      },
+      "tm": 54.91047610543029
+    },
+    {
+      "sequence": "ATATATATATATATATAT",
+      "conditions": {
+        "monovalent": 50,
+        "magnesium": 1.5,
+        "dntp": 0.6,
+        "dna": 50
+      },
+      "tm": 27.421451382235205
+    },
+    {
+      "sequence": "ATATATATATATATATAT",
+      "conditions": {
+        "monovalent": 10,
+        "magnesium": 0,
+        "dntp": 0,
+        "dna": 50
+      },
+      "tm": 14.578395516255398
+    },
+    {
+      "sequence": "ATATATATATATATATAT",
+      "conditions": {
+        "monovalent": 100,
+        "magnesium": 2,
+        "dntp": 0.8,
+        "dna": 500
+      },
+      "tm": 32.67819174214304
+    },
+    {
+      "sequence": "ATATATATATATATATAT",
+      "conditions": {
+        "monovalent": 50,
+        "magnesium": 0.2,
+        "dntp": 0.8,
+        "dna": 100
+      },
+      "tm": 22.853730652375816
+    },
+    {
+      "sequence": "GCGCGCGCGCGCGCGCGC",
+      "conditions": {
+        "monovalent": 50,
+        "magnesium": 1.5,
+        "dntp": 0.6,
+        "dna": 50
+      },
+      "tm": 80.28196588062406
+    },
+    {
+      "sequence": "GCGCGCGCGCGCGCGCGC",
+      "conditions": {
+        "monovalent": 10,
+        "magnesium": 0,
+        "dntp": 0,
+        "dna": 50
+      },
+      "tm": 68.07287203177628
+    },
+    {
+      "sequence": "GCGCGCGCGCGCGCGCGC",
+      "conditions": {
+        "monovalent": 100,
+        "magnesium": 2,
+        "dntp": 0.8,
+        "dna": 500
+      },
+      "tm": 85.21972585287881
+    },
+    {
+      "sequence": "GCGCGCGCGCGCGCGCGC",
+      "conditions": {
+        "monovalent": 50,
+        "magnesium": 0.2,
+        "dntp": 0.8,
+        "dna": 100
+      },
+      "tm": 75.96350825789057
+    },
+    {
+      "sequence": "ATGCATGCATGCATGCATGCA",
+      "conditions": {
+        "monovalent": 50,
+        "magnesium": 1.5,
+        "dntp": 0.6,
+        "dna": 50
+      },
+      "tm": 62.843339729338936
+    },
+    {
+      "sequence": "ATGCATGCATGCATGCATGCA",
+      "conditions": {
+        "monovalent": 10,
+        "magnesium": 0,
+        "dntp": 0,
+        "dna": 50
+      },
+      "tm": 49.3598463620371
+    },
+    {
+      "sequence": "ATGCATGCATGCATGCATGCA",
+      "conditions": {
+        "monovalent": 100,
+        "magnesium": 2,
+        "dntp": 0.8,
+        "dna": 500
+      },
+      "tm": 67.77287141418213
+    },
+    {
+      "sequence": "ATGCATGCATGCATGCATGCA",
+      "conditions": {
+        "monovalent": 50,
+        "magnesium": 0.2,
+        "dntp": 0.8,
+        "dna": 100
+      },
+      "tm": 57.89509752244925
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+import assert from 'node:assert/strict';
+import {adaptiveDesign,repeatedPair,qualityIssues} from '../lib/batch/adaptive.ts';
+import {settings,defaults} from '../lib/batch/core.ts';
+import {checkTarget} from '../lib/blast/target.ts';
+import {csv} from '../lib/batch/view.ts';
+let seed=71;const random=n=>Array.from({length:n},()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return 'ACGT'[seed>>>30]}).join('');
+const cds='ATGGGGGGCGCTACGCTGCAG'+('GCTGACCTG'.repeat(30))+'TAA';
+const up=random(500),down=random(500);const record={accession:'NM_TEST.1',gene:'TEST',protein:'',title:'synthetic test only',recommendation:'',sequence:up+cds+down,start:501,end:500+cds.length};
+const options=settings({...defaults,upstream:0,downstream:0,tmMin:40,tmMax:80});
+const off=adaptiveDesign(record,[record],{...options,autoExpandRepeats:false});assert.ok(off.pairs.some(repeatedPair));assert.equal(off.search.status,'disabled');
+const result=adaptiveDesign(record,[record],options);assert.equal(result.search.status,'replaced');assert.ok(result.search.searchedUp>0||result.search.searchedDown>0);assert.ok(result.pairs.length<=5&&result.pairs.length>0);
+for(const p of result.pairs){assert.ok(!repeatedPair(p));assert.deepEqual(qualityIssues(p),[]);assert.equal(checkTarget(record.sequence,record.start,record.end,p).status,'matched');for(const primer of [p.forward,p.reverse])assert.ok(primer.sequence.length<=25&&primer.tm>=40&&primer.tm<=80&&primer.gc>=35&&primer.gc<=65);}
+const exact=adaptiveDesign(record,[record],{...options,mode:'exact'});assert.equal(exact.search.status,'exact');assert.equal(exact.search.rounds,0);assert.ok(exact.pairs.every(p=>p.productStart===record.start&&p.productEnd===record.end));
+const noUtr={...record,sequence:cds,start:1,end:cds.length};const failed=adaptiveDesign(noUtr,[noUtr],options);assert.equal(failed.search.status,'unresolved');assert.equal(failed.search.searchedUp,0);assert.equal(failed.search.searchedDown,0);assert.ok(failed.pairs.some(repeatedPair));
+const second=adaptiveDesign(record,[record],{...options,upstream:100,downstream:100});assert.ok(second.search.searchedUp<=500&&second.search.searchedDown<=500);
+const output=csv({id:'test',created_at:1,settings:options,items:[{id:'item',input:'TEST',status:'complete',settings:options,pairs:result.pairs,search:result.search}]},false);assert.ok(output.includes('自动质量优化'));assert.ok(output.includes('replaced'));
+assert.ok(result.search.triggers.some(t=>t.includes('GC')));
+const cleanPair=result.pairs[0];assert.ok(qualityIssues({...cleanPair,forward:{...cleanPair.forward,gc:34.99}}).some(t=>t.includes('GC')));assert.ok(qualityIssues({...cleanPair,reverse:{...cleanPair.reverse,gc:65.01}}).some(t=>t.includes('GC')));assert.ok(!qualityIssues({...cleanPair,forward:{...cleanPair.forward,gc:35},reverse:{...cleanPair.reverse,gc:65}}).some(t=>t.includes('GC')));
+const poorCds='ATG'+'AAT'.repeat(40)+'TAA',poor={...record,sequence:up+poorCds+down,end:500+poorCds.length};const recovered=adaptiveDesign(poor,[poor],settings({...defaults,upstream:0,downstream:0}));assert.ok(recovered.search.triggers.includes('初始范围没有合适候选'));assert.equal(recovered.search.status,'replaced');assert.ok(recovered.pairs.length);assert.ok(recovered.pairs.every(p=>!qualityIssues(p).length));
+const hopeless={...poor,sequence:poorCds,start:1,end:poorCds.length};const none=adaptiveDesign(hopeless,[hopeless],settings({...defaults,upstream:0,downstream:0}));assert.equal(none.pairs.length,0);assert.equal(none.search.status,'unresolved');
+assert.throws(()=>adaptiveDesign({...record,sequence:up+'TTT'+cds.slice(3)+down},[record],options));
+assert.throws(()=>settings({...options,autoExpandRepeats:'true'}));assert.throws(()=>settings({...options,upstream:501}));
+console.log('PASS adaptive repeat replacement, strict length/Tm and CDS coverage, disabled/exact modes, transcript boundary fallback, persisted CSV metadata.');console.log(result.search);

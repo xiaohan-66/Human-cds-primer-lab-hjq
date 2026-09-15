@@ -1,0 +1,8 @@
+import {sqliteTable,text,integer,blob,index} from 'drizzle-orm/sqlite-core';
+export const sequenceCache=sqliteTable('sequence_cache',{query:text('query').primaryKey(),payload:blob('payload',{mode:'buffer'}).notNull(),fetchedAt:integer('fetched_at').notNull()});
+export const queryLeases=sqliteTable('query_leases',{query:text('query').primaryKey(),owner:text('owner').notNull(),expiresAt:integer('expires_at').notNull()});
+export const upstreamGate=sqliteTable('upstream_gate',{id:text('id').primaryKey(),nextAt:integer('next_at').notNull()});
+
+export const primerBatches=sqliteTable('primer_batches',{id:text('id').primaryKey(),owner:text('owner').notNull(),createdAt:integer('created_at').notNull(),settings:text('settings').notNull()},t=>[index('primer_batches_owner_created').on(t.owner,t.createdAt)]);
+export const primerItems=sqliteTable('primer_items',{id:text('id').primaryKey(),batchId:text('batch_id').notNull(),position:integer('position').notNull(),input:text('input').notNull(),status:text('status').notNull(),settings:text('settings').notNull(),payload:blob('payload',{mode:'buffer'}),lease:text('lease'),leaseUntil:integer('lease_until').notNull().default(0)},t=>[index('primer_items_batch_position').on(t.batchId,t.position)]);
+export const blastJobs=sqliteTable('blast_jobs',{id:text('id').primaryKey(),batchId:text('batch_id').notNull(),owner:text('owner').notNull(),createdAt:integer('created_at').notNull(),status:text('status').notNull(),nextAt:integer('next_at').notNull(),lease:text('lease'),leaseUntil:integer('lease_until').notNull().default(0),payload:blob('payload',{mode:'buffer'}).notNull()},t=>[index('blast_jobs_owner_batch').on(t.owner,t.batchId,t.createdAt)]);

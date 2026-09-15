@@ -1,0 +1,23 @@
+{
+  "NM_001410909.1": {
+    "accession": "NM_001410909.1",
+    "gene": "ABI1",
+    "geneId": "10006",
+    "source": "NCBI GenBank",
+    "fetchedAt": 1788894475453
+  },
+  "NM_001348031.2": {
+    "accession": "NM_001348031.2",
+    "gene": "ABI1",
+    "geneId": "10006",
+    "source": "NCBI GenBank",
+    "fetchedAt": 1788894475453
+  },
+  "NM_139178.4": {
+    "accession": "NM_139178.4",
+    "gene": "ALKBH3",
+    "geneId": "221120",
+    "source": "NCBI GenBank",
+    "fetchedAt": 1788894475453
+  }
+}
