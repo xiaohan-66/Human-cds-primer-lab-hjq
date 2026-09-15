@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="400" viewBox="0 0 1280 400" role="img" aria-label="Human CDS Primer Lab — scientific workflow toolkit">
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#08172d"/><stop offset="1" stop-color="#113b4b"/></linearGradient><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#b2f1ea" stroke-opacity=".045"/></pattern></defs>
+<rect width="1280" height="400" rx="20" fill="url(#bg)"/><rect width="1280" height="400" rx="20" fill="url(#grid)"/>
+<rect x="64" y="55" width="5" height="21" rx="2" fill="#5eead4"/>
+<g font-family="Segoe UI,Arial,sans-serif"><text x="84" y="72" fill="#76dfd2" font-size="14" letter-spacing="3">SCIENTIFIC WORKFLOW TOOLKIT</text>
+<text x="62" y="157" fill="#f5f9ff" font-size="54" font-weight="700">Human CDS</text><text x="62" y="219" fill="#f5f9ff" font-size="54" font-weight="700">Primer Lab</text>
+<text x="65" y="266" fill="#b6cddd" font-size="19">Sequence retrieval. Primer design. Pair analysis.</text>
+<rect x="64" y="309" width="158" height="35" rx="17" fill="#204556"/><text x="143" y="332" text-anchor="middle" fill="#a5f3e3" font-size="13">01 — RETRIEVE</text>
+<rect x="236" y="309" width="158" height="35" rx="17" fill="#204556"/><text x="315" y="332" text-anchor="middle" fill="#a5f3e3" font-size="13">02 — DESIGN</text>
+<rect x="408" y="309" width="158" height="35" rx="17" fill="#204556"/><text x="487" y="332" text-anchor="middle" fill="#a5f3e3" font-size="13">03 — REVIEW</text></g>
+<g transform="translate(790 62)"><rect width="420" height="280" rx="16" fill="#102d40" stroke="#305566"/><g stroke-width="3" fill="none"><path d="M28 95C90 10 170 180 245 95S345 10 394 95" stroke="#5eead4"/><path d="M28 95C90 180 170 10 245 95S345 180 394 95" stroke="#5c96e8"/></g><g stroke="#8dd9d7" opacity=".45"><path d="M62 62v66M96 65v59M130 93v5M164 62v66M198 60v70M280 60v70M314 58v74M348 91v9M377 67v55"/></g>
+<g font-family="Segoe UI,Arial,sans-serif"><text x="30" y="191" fill="#e4f4ff" font-size="28" font-weight="600">50 targets / batch</text><text x="30" y="222" fill="#9dbccc" font-size="15">Up to 5 candidate pairs per target</text><text x="30" y="253" fill="#5eead4" font-size="12" letter-spacing="2">HUMAN REFSEQ · COMPLETE CDS</text></g></g></svg>
