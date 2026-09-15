@@ -1,13 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="400" viewBox="0 0 1280 400" role="img" aria-label="Human CDS Primer Lab — scientific workflow toolkit">
-<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#08172d"/><stop offset="1" stop-color="#113b4b"/></linearGradient><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#b2f1ea" stroke-opacity=".045"/></pattern></defs>
-<rect width="1280" height="400" rx="20" fill="url(#bg)"/><rect width="1280" height="400" rx="20" fill="url(#grid)"/>
-<rect x="64" y="55" width="5" height="21" rx="2" fill="#5eead4"/>
-<g font-family="Segoe UI,Arial,sans-serif"><text x="84" y="72" fill="#76dfd2" font-size="14" letter-spacing="3">SCIENTIFIC WORKFLOW TOOLKIT</text>
-<text x="62" y="157" fill="#f5f9ff" font-size="54" font-weight="700">Primer</text><text x="62" y="219" fill="#f5f9ff" font-size="54" font-weight="700">Studio</text>
-<text x="65" y="266" fill="#b6cddd" font-size="19">Sequence retrieval. Primer design. Pair analysis.</text>
-<rect x="64" y="309" width="158" height="35" rx="17" fill="#204556"/><text x="143" y="332" text-anchor="middle" fill="#a5f3e3" font-size="13">01 — RETRIEVE</text>
-<rect x="236" y="309" width="158" height="35" rx="17" fill="#204556"/><text x="315" y="332" text-anchor="middle" fill="#a5f3e3" font-size="13">02 — DESIGN</text>
-<rect x="408" y="309" width="158" height="35" rx="17" fill="#204556"/><text x="487" y="332" text-anchor="middle" fill="#a5f3e3" font-size="13">03 — REVIEW</text></g>
-<g transform="translate(790 62)"><rect width="420" height="280" rx="16" fill="#102d40" stroke="#305566"/><g stroke-width="3" fill="none"><path d="M28 95C90 10 170 180 245 95S345 10 394 95" stroke="#5eead4"/><path d="M28 95C90 180 170 10 245 95S345 180 394 95" stroke="#5c96e8"/></g><g stroke="#8dd9d7" opacity=".45"><path d="M62 62v66M96 65v59M130 93v5M164 62v66M198 60v70M280 60v70M314 58v74M348 91v9M377 67v55"/></g>
-<g font-family="Segoe UI,Arial,sans-serif"><text x="30" y="191" fill="#e4f4ff" font-size="28" font-weight="600">1 / 10 / 50 targets</text><text x="30" y="222" fill="#9dbccc" font-size="15">Single · Batch · High-throughput</text><text x="30" y="253" fill="#5eead4" font-size="12" letter-spacing="2">HUMAN REFSEQ · COMPLETE CDS</text></g></g></svg>
-
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="440" viewBox="0 0 1440 440" role="img" aria-labelledby="title desc">
+<title id="title">棱序 Primer Studio</title><desc id="desc">让引物设计有据可循，让实验准备井然有序。单基因、小批量与高通量设计。</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#091a2c"/><stop offset="1" stop-color="#134b58"/></linearGradient><linearGradient id="line"><stop stop-color="#45dbc4"/><stop offset="1" stop-color="#8ddff3"/></linearGradient><pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#c7e8ee" stroke-opacity=".035"/></pattern></defs>
+<rect width="1440" height="440" rx="24" fill="url(#bg)"/><rect width="1440" height="440" rx="24" fill="url(#grid)"/>
+<circle cx="1295" cy="68" r="220" fill="#307c89" opacity=".1"/><path d="M762 30V410" stroke="#7eb9c5" stroke-opacity=".2"/>
+<g font-family="Segoe UI,Microsoft YaHei,PingFang SC,Arial,sans-serif">
+<rect x="62" y="52" width="36" height="36" rx="10" fill="#3ed2bd" fill-opacity=".15" stroke="#4fbeb9" stroke-opacity=".4"/><path d="M71 61c20 4-1 14 18 18M89 61c-20 4 1 14-18 18M76 65h8m-9 10h10" fill="none" stroke="#7ce3d3" stroke-width="2"/>
+<text x="112" y="76" fill="#95d5dd" font-size="13" letter-spacing="3">HUMAN CDS · PRIMER DESIGN</text>
+<text x="60" y="176" fill="#f2f9ff" font-size="66" font-weight="700">棱序</text><text x="214" y="173" fill="#f2f9ff" font-size="47" font-weight="600">Primer Studio</text>
+<text x="64" y="226" fill="#bce6e7" font-size="23">让引物设计有据可循，让实验准备井然有序。</text>
+<text x="64" y="270" fill="#8db1c1" font-size="15" letter-spacing="1">REFERENCE SEQUENCES → CANDIDATES → REVIEW</text>
+<g fill="#123647" stroke="#416270"><rect x="64" y="321" width="196" height="60" rx="12"/><rect x="276" y="321" width="196" height="60" rx="12"/><rect x="488" y="321" width="196" height="60" rx="12"/></g>
+<g fill="#e4f7f7" font-size="17"><text x="86" y="358">单基因</text><text x="298" y="358">小批量</text><text x="510" y="358">高通量</text></g>
+<g fill="#69dfcd" font-size="24" font-weight="600" text-anchor="end"><text x="238" y="359">01</text><text x="450" y="359">10</text><text x="662" y="359">50</text></g>
+<text x="804" y="70" fill="#8bc9d2" font-size="12" letter-spacing="3">FROM SEQUENCE TO EXPERIMENT</text>
+<g fill="none" stroke-width="3"><path d="M810 167C874 74 946 254 1017 167S1157 74 1229 167S1310 220 1368 167" stroke="url(#line)"/><path d="M810 167C874 260 946 80 1017 167S1157 260 1229 167S1310 114 1368 167" stroke="#6599d5"/></g>
+<g stroke="#8cc5d0" opacity=".45"><path d="M845 130v74m28-84v94m30-70v50m58-63v75m30-72v69m64-77v85m30-83v82m29-63v49m60-51v63m29-68v67m58-61v57m28-48v41"/></g>
+<path d="M805 264H1372" stroke="#4c7885" stroke-opacity=".5"/>
+<text x="806" y="305" fill="#def3f6" font-size="19" font-weight="600">检索参考序列 · 设计候选引物 · 阅读复核依据</text>
+<text x="806" y="340" fill="#91b8c5" font-size="15">完整 CDS 覆盖 / 可追溯参数 / 引物配对分析</text>
+<text x="806" y="377" fill="#69cebf" font-size="12" letter-spacing="2">RESEARCH SOFTWARE · BUILT FROM LAB NEEDS</text>
+</g></svg>

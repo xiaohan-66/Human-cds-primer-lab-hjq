@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="460" viewBox="0 0 1200 460" role="img" aria-labelledby="title">
+<title id="title">棱序高通量版设计流程</title>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10" fill="none" stroke="#6b8b9b" stroke-width="1.8"/></marker></defs>
+<rect width="1200" height="460" rx="20" fill="#f5f9fc"/>
+<g font-family="Segoe UI,Microsoft YaHei,PingFang SC,Arial,sans-serif">
+<text x="38" y="42" fill="#5a7889" font-size="12" letter-spacing="2">PRIMER STUDIO / DESIGN WORKFLOW</text>
+<g stroke="#ccdce6" fill="#fff"><rect x="38" y="72" width="336" height="130" rx="14"/><rect x="432" y="72" width="336" height="130" rx="14"/><rect x="826" y="72" width="336" height="130" rx="14"/></g>
+<g fill="#e9f6f2" stroke="#a6d9cf"><rect x="38" y="276" width="336" height="140" rx="14"/><rect x="432" y="276" width="336" height="140" rx="14"/></g>
+<rect x="826" y="276" width="336" height="140" rx="14" fill="#eef4fc" stroke="#a7bfdc" stroke-dasharray="5 4"/>
+<g fill="#178b8c" font-size="12" font-weight="700"><text x="60" y="102">01 / 输入目标</text><text x="454" y="102">02 / 确认参考记录</text><text x="848" y="102">03 / 设置设计条件</text><text x="60" y="309">05 / 整理结果</text><text x="454" y="309">04 / 生成与优化</text><text x="848" y="309">06 / 可选远程复核</text></g>
+<g fill="#173d52" font-size="20" font-weight="600"><text x="60" y="141">基因名称或 RefSeq ID</text><text x="454" y="141">转录本与完整 CDS</text><text x="848" y="141">扩增模式与搜索范围</text><text x="60" y="348">候选比较与 CSV 导出</text><text x="454" y="348">候选设计与质量筛查</text><text x="848" y="348">BLAST 引物配对分析</text></g>
+<g fill="#637f8f" font-size="14"><text x="60" y="176">高通量版每批最多 50 个目标</text><text x="454" y="176">存在歧义时，由研究者确认</text><text x="848" y="176">Tm、UTR 窗口与计算条件</text><text x="60" y="385">保留序列、坐标、参数和提示</text><text x="454" y="385">必要时扩大 UTR 搜索范围</text><text x="848" y="385">结合产物归属与搜索覆盖阅读</text></g>
+<g fill="none" stroke="#6b8b9b" stroke-width="2" marker-end="url(#arrow)"><path d="M380 137H422"/><path d="M774 137H816"/><path d="M994 208V238H600V266"/><path d="M426 346H384"/><path d="M206 422V442H994V426" stroke-dasharray="5 5"/></g>
+</g></svg>
