@@ -90,7 +90,7 @@
 
 [![GPN1 预期产物、B 级同基因转录本扩增与搜索覆盖有限提示](docs/assets/specificity-report.png)](docs/assets/specificity-report.png)
 
-**GPN1 示例：**检出 NM_007266.4 的 1,154 bp 预期产物，同时发现 1 个同基因其他转录本潜在产物，评级为 **B · 同基因转录本扩增**。F/R 返回记录均为 500+，页面因此独立提示 **搜索覆盖有限**。两项信息需要结合阅读，不能将 B 级结果理解为检索已穷尽。
+**GPN1 示例：**检出 NM_007266.4 的 1,154 bp 预期产物，同时发现 1 个同基因其他转录本潜在产物，评级为 **B · 同基因转录本扩增**。F/R 返回记录均为 500+，页面因此独立提示 **搜索覆盖有限**。两项信息需要结合阅读，不能将 B 级结果理解为检索已穷尽。详见 [A–D 评级标准](#specificity-grades)。
 
 <p align="center"><sub>原始页面截图于 2026-09-15 收录；保留真实参数、结果与限制说明。</sub></p>
 
@@ -223,6 +223,31 @@ npm run build
 
 `batch-http.mjs`、`quality-bulk-http.mjs` 等脚本需要相应本地服务；`blast-live.mjs` 会请求外部服务。它们不属于上述离线测试集合。50 目标回归验证的是任务和数据流，并非 50 个基因的湿实验。
 
+<a id="specificity-grades"></a>
+
+### 引物特异性评级说明
+
+完成引物配对分析后，工具依据**本次返回并已分析的潜在 PCR 产物**给出 A–D 级结果。分析包括 F–R、F–F 与 R–R 组合；评级与“搜索覆盖度”分别展示，需结合阅读。
+
+<table align="center" width="100%">
+<thead><tr><th align="center" width="9%">等级</th><th align="center" width="21%">含义</th><th align="center" width="43%">判定与结果解释</th><th align="center" width="27%">使用建议</th></tr></thead>
+<tbody>
+<tr><td align="center">🟢 <strong>A</strong></td><td align="center"><strong>已分析记录中<br/>未发现非目标产物</strong></td><td>满足评级前提，且未触发 B、C 或 D 条件。表示本次分析未发现非目标潜在产物，不表示已排除所有脱靶。</td><td>可优先纳入候选；结合覆盖度、质量提示与实验条件继续复核。</td></tr>
+<tr><td align="center">🟡 <strong>B</strong></td><td align="center"><strong>同基因转录本扩增</strong></td><td>发现同一基因其他转录本的潜在产物，且未触发 C 或 D 条件；归属依据 Gene ID 等注释判断。</td><td>按实验目的判断；若需区分特定异构体，应重新检查结合位置或设计候选。</td></tr>
+<tr><td align="center">🟠 <strong>C</strong></td><td align="center"><strong>潜在非目标产物<br/>或归属待确认</strong></td><td>存在未达到高风险阈值的其他基因、同转录本异常或基因组潜在产物，或有非目标产物缺少可靠基因归属。无 D 级高风险产物。</td><td>人工核查产物归属、错配位置和实验相关性；必要时选择备选或重新设计。</td></tr>
+<tr><td align="center">🔴 <strong>D</strong></td><td align="center"><strong>高风险非目标扩增</strong></td><td>其他基因、同转录本异常或基因组潜在产物触发当前规则的高风险判定（风险分数 ≥80）。</td><td>不宜直接作为最终实验引物；优先检查其他候选并复核，必要时重新设计。</td></tr>
+</tbody></table>
+
+**评级前提与优先顺序：**RNA 检查需在返回记录中检出预期配对产物，且本地目标模板校验未显示不匹配；基因组检查需本地目标模板校验匹配。配对计算未触发安全上限时，按 **D → C → B → A** 的顺序确定等级。
+
+**“暂不评级”不等于 D 级。** 目标校验不满足上述前提，或配对计算、产物保存触及安全上限而未完成分析时，工具暂不评级。远程未检出预期配对，也不能直接推断引物无法扩增。
+
+**“搜索覆盖有限”独立于 A–D。** 返回记录达到上限时，已有产物仍可获得等级，但结论仅覆盖已分析记录，不因此自动降为 D。人源搜索范围无法核验时，同样应结合范围提示谨慎解释。
+
+> **评级反映计算预测，不是 PCR 实验成功率。** A 级不保证扩增成功；Tm、GC、二聚体、发卡结构、模板质量及 PCR 条件仍会影响实验。风险分数是未经湿实验校准的规则指标，不是扩增概率。
+
+判定实现见 [pair-classification.ts](lib/blast/pair-classification.ts)，评分方法见 [配对特异性说明](BLAST-SPECIFICITY.md)。
+
 ### 结果应如何使用
 
 候选由本项目算法生成，并非 Primer3 输出。批量 Tm 使用近邻模型；结构评估是连续 Watson–Crick 互补筛查，未实现完整折叠自由能计算。BLAST 分析限于返回记录，风险分数未经实验校准，不等于扩增概率。历史结果与新版计算存在方法差异时，应重新设计或复核。
@@ -238,5 +263,6 @@ npm run build
 - 在线部署与仓库提交可能处于不同版本。源代码、验证记录与页面结果应结合查看。
 
 </details>
+
 
 
