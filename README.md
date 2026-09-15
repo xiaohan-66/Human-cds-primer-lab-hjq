@@ -6,7 +6,7 @@
 
 人源转录本检索 · 完整 CDS 引物设计 · 批量质量筛查 · 配对特异性分析
 
-**[50 目标工作台 ↗](https://human-cds-primer-throughput-lab.lwhjq6666.chatgpt.site/)** · **[快速开始](#本地运行)** · **[核心代码](#代码导览)** · **[验证记录](VALIDATION.md)**
+**[50 目标工作台 ↗](https://human-cds-primer-throughput-lab.lwhjq6666.chatgpt.site/)** · **[界面演示](#interface-gallery)** · **[快速开始](#本地运行)** · **[核心代码](#代码导览)** · **[验证记录](VALIDATION.md)**
 
 <sub>TypeScript / React 19 / vinext / Cloudflare Workers + D1</sub>
 
@@ -27,6 +27,57 @@
 | **50 · 高通量** | [进入 50 目标工作台 ↗](https://human-cds-primer-throughput-lab.lwhjq6666.chatgpt.site/) | 较大规模引物准备，分批查看、暂停恢复和统一导出 | 本仓库根目录的实现；每目标最多 5 对候选 |
 
 三个入口使用统一的 **棱序 Primer Studio** 导航。单基因入口是高通量站点内的 `/single` 页面；10 目标与 50 目标工作台分别部署。不同部署的任务历史不互通，站点访问仍受原网站权限设置影响。
+
+<a id="interface-gallery"></a>
+
+## 实际界面 · 从设计到结果复核
+
+以下为用户提供的真实运行截图，保留原始页面内容。各图展示不同操作环节与基因示例，不代表同一条连续任务；点击图片可查看原图。
+
+### 01 / 工作台总览
+
+[![棱序高通量工作台：输入区、24 个目标的处理进度、导出入口与 BLAST 面板](docs/assets/workbench-overview.png)](docs/assets/workbench-overview.png)
+
+> **批量进度一目了然。** 此次截图显示 24 / 24 个目标已完成设计处理，提供优先候选与全部候选导出入口。“成功 24”是工作台处理状态，不等于 24 个目标均已通过特异性验证或实验验证。
+
+### 02 / 参数设置
+
+<table>
+<tr>
+<td width="42%" align="center" valign="top">
+<a href="docs/assets/design-settings.png"><img src="docs/assets/design-settings.png" width="360" alt="引物设计参数：包含 UTR、Tm 55–65 摄氏度、上下游各 100 bp、开启自动优化" /></a>
+</td>
+<td width="58%" valign="top">
+<h4>明确边界，再开始设计</h4>
+<p><strong>扩增模式</strong><br/>截图选择“包含 UTR，完整覆盖 CDS”；也可切换为精确 CDS 两端。</p>
+<p><strong>温度与搜索窗口</strong><br/>示例 Tm 为 55–65 °C，上下游初始搜索范围各 100 bp。</p>
+<p><strong>质量自动优化</strong><br/>开启后可扩大搜索，最多每侧 500 bp，并受实际转录本边界限制。</p>
+<p><sub>图中数值是此次界面设置，不是适用于所有实验的推荐条件。引物长度与温差等约束仍需满足。</sub></p>
+</td>
+</tr>
+</table>
+
+### 03 / 候选引物结果
+
+[![GTF2E2 候选结果：F/R 序列、Tm、GC、产物长度及备选入口](docs/assets/primer-candidate.png)](docs/assets/primer-candidate.png)
+
+> **从序列读到设计依据。** GTF2E2 示例对应 NM_002095.6，CDS 长 876 bp；当前候选产物长 892 bp，ΔTm 为 0.3 °C。卡片集中展示 F/R 序列、长度、Tm 与 GC，并提供质量评估、自动优化记录及 4 组备选入口。“较少风险提示”是当前质量筛查结果，不是特异性通过结论。
+
+### 04 / 选择需要复核的引物对
+
+[![BLAST 候选选择：RPA1、RPA2 与 SAMD1 的优先及备选引物](docs/assets/blast-selection.png)](docs/assets/blast-selection.png)
+
+> **按候选对组织复核。** 可勾选优先候选或备选，并通过各自的 Primer-BLAST 入口在官方页面复核。此图显示“已勾选 0 组”，展示的是选择界面，而非已完成的验证结果。
+
+### 05 / 配对特异性与搜索覆盖
+
+[![GPN1 RNA 配对分析：预期产物检出、同基因转录本扩增与搜索覆盖有限](docs/assets/specificity-report.png)](docs/assets/specificity-report.png)
+
+> **把目标、潜在产物和覆盖限制分开看。** GPN1 示例检出 NM_007266.4 的 1,154 bp 预期产物，同时报告 1 个同基因其他转录本潜在产物，评级为 **B · 同基因转录本扩增**。F/R 返回记录均显示 500+，因此明确提示 **搜索覆盖有限**；覆盖警告独立于 A–D 评级，不能据此宣称不存在其他潜在扩增。
+
+<sub>截图来源：用户提供的棱序 Primer Studio 页面，2026-09-15 加入文档。图内数据仅用于说明软件输出与阅读方式。</sub>
+
+---
 
 ## 本次更新 · 2026.09.15
 
@@ -151,5 +202,7 @@ npm run build
 ## 项目状态
 
 该仓库整理自现有引物设计网站源码。最新本地自动优化修改也包含在内，可能晚于线上部署版本。项目展示应以当前源码与验证记录为准。
+
+
 
 
