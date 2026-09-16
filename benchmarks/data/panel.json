@@ -1,0 +1,242 @@
+[
+  {
+    "gene": "TP53",
+    "requested_accession": "NM_000546"
+  },
+  {
+    "gene": "BRCA1",
+    "requested_accession": "NM_007294"
+  },
+  {
+    "gene": "BRCA2",
+    "requested_accession": "NM_000059"
+  },
+  {
+    "gene": "EGFR",
+    "requested_accession": "NM_005228"
+  },
+  {
+    "gene": "KRAS",
+    "requested_accession": "NM_004985"
+  },
+  {
+    "gene": "HRAS",
+    "requested_accession": "NM_005343"
+  },
+  {
+    "gene": "NRAS",
+    "requested_accession": "NM_002524"
+  },
+  {
+    "gene": "BRAF",
+    "requested_accession": "NM_004333"
+  },
+  {
+    "gene": "MAP2K1",
+    "requested_accession": "NM_002755"
+  },
+  {
+    "gene": "MAPK1",
+    "requested_accession": "NM_002745"
+  },
+  {
+    "gene": "MAPK3",
+    "requested_accession": "NM_002746"
+  },
+  {
+    "gene": "AKT1",
+    "requested_accession": "NM_005163"
+  },
+  {
+    "gene": "AKT2",
+    "requested_accession": "NM_001626"
+  },
+  {
+    "gene": "PTEN",
+    "requested_accession": "NM_000314"
+  },
+  {
+    "gene": "PIK3CA",
+    "requested_accession": "NM_006218"
+  },
+  {
+    "gene": "MTOR",
+    "requested_accession": "NM_004958"
+  },
+  {
+    "gene": "APC",
+    "requested_accession": "NM_000038"
+  },
+  {
+    "gene": "CTNNB1",
+    "requested_accession": "NM_001904"
+  },
+  {
+    "gene": "SMAD4",
+    "requested_accession": "NM_005359"
+  },
+  {
+    "gene": "TGFBR2",
+    "requested_accession": "NM_003242"
+  },
+  {
+    "gene": "RB1",
+    "requested_accession": "NM_000321"
+  },
+  {
+    "gene": "CDKN1A",
+    "requested_accession": "NM_000389"
+  },
+  {
+    "gene": "CDKN2A",
+    "requested_accession": "NM_000077"
+  },
+  {
+    "gene": "CCND1",
+    "requested_accession": "NM_053056"
+  },
+  {
+    "gene": "CDK2",
+    "requested_accession": "NM_001798"
+  },
+  {
+    "gene": "CDK4",
+    "requested_accession": "NM_000075"
+  },
+  {
+    "gene": "MYC",
+    "requested_accession": "NM_002467"
+  },
+  {
+    "gene": "BCL2",
+    "requested_accession": "NM_000633"
+  },
+  {
+    "gene": "BAX",
+    "requested_accession": "NM_004324"
+  },
+  {
+    "gene": "CASP3",
+    "requested_accession": "NM_004346"
+  },
+  {
+    "gene": "GAPDH",
+    "requested_accession": "NM_002046"
+  },
+  {
+    "gene": "ACTB",
+    "requested_accession": "NM_001101"
+  },
+  {
+    "gene": "HPRT1",
+    "requested_accession": "NM_000194"
+  },
+  {
+    "gene": "TBP",
+    "requested_accession": "NM_003194"
+  },
+  {
+    "gene": "RPLP0",
+    "requested_accession": "NM_001002"
+  },
+  {
+    "gene": "PPIA",
+    "requested_accession": "NM_021130"
+  },
+  {
+    "gene": "G6PD",
+    "requested_accession": "NM_000402"
+  },
+  {
+    "gene": "PGK1",
+    "requested_accession": "NM_000291"
+  },
+  {
+    "gene": "LDHA",
+    "requested_accession": "NM_005566"
+  },
+  {
+    "gene": "SDHA",
+    "requested_accession": "NM_004168"
+  },
+  {
+    "gene": "HIF1A",
+    "requested_accession": "NM_001530"
+  },
+  {
+    "gene": "VEGFA",
+    "requested_accession": "NM_003376"
+  },
+  {
+    "gene": "IL6",
+    "requested_accession": "NM_000600"
+  },
+  {
+    "gene": "TNF",
+    "requested_accession": "NM_000594"
+  },
+  {
+    "gene": "IFNG",
+    "requested_accession": "NM_000619"
+  },
+  {
+    "gene": "STAT1",
+    "requested_accession": "NM_007315"
+  },
+  {
+    "gene": "STAT3",
+    "requested_accession": "NM_003150"
+  },
+  {
+    "gene": "JAK1",
+    "requested_accession": "NM_002227"
+  },
+  {
+    "gene": "JAK2",
+    "requested_accession": "NM_004972"
+  },
+  {
+    "gene": "NFKB1",
+    "requested_accession": "NM_003998"
+  },
+  {
+    "gene": "RELA",
+    "requested_accession": "NM_021975"
+  },
+  {
+    "gene": "NFE2L2",
+    "requested_accession": "NM_006164"
+  },
+  {
+    "gene": "KEAP1",
+    "requested_accession": "NM_012289"
+  },
+  {
+    "gene": "SOD1",
+    "requested_accession": "NM_000454"
+  },
+  {
+    "gene": "SOD2",
+    "requested_accession": "NM_000636"
+  },
+  {
+    "gene": "CAT",
+    "requested_accession": "NM_001752"
+  },
+  {
+    "gene": "GPX1",
+    "requested_accession": "NM_000581"
+  },
+  {
+    "gene": "ATM",
+    "requested_accession": "NM_000051"
+  },
+  {
+    "gene": "ATR",
+    "requested_accession": "NM_001184"
+  },
+  {
+    "gene": "CHEK2",
+    "requested_accession": "NM_007194"
+  }
+]

@@ -1,0 +1,38 @@
+{
+  "studio_exact": {
+    "genes": 60,
+    "genes_with_candidates": 38,
+    "pairs": 176,
+    "errors": 3,
+    "no_candidates": 19,
+    "median_ms": 1.216,
+    "total_ms": 78.383
+  },
+  "primer3_exact": {
+    "genes": 60,
+    "genes_with_candidates": 25,
+    "pairs": 104,
+    "errors": 0,
+    "no_candidates": 35,
+    "median_ms": 6.262,
+    "total_ms": 410.899
+  },
+  "studio_adaptive": {
+    "genes": 60,
+    "genes_with_candidates": 57,
+    "pairs": 285,
+    "errors": 3,
+    "no_candidates": 0,
+    "median_ms": 61.243,
+    "total_ms": 3741.395
+  },
+  "scope": {
+    "selection": "60 fixed-accession convenience genes; not random/genome representative",
+    "records": 60,
+    "unique_genes": 60,
+    "primer_blast": "not_run",
+    "wet_lab": "not_run",
+    "invalid_returned_pairs": 0,
+    "record_sha256": "b7e390884525ce2e99a58e27fabcff56407f607bfda9c70f2f3b6a35f0da444a"
+  }
+}

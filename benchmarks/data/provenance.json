@@ -1,0 +1,36 @@
+{
+  "selection": "Convenience panel selected before running either designer; one fixed RefSeq accession per gene. No selection by design outcome.",
+  "sources": [
+    {
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NM_000546%2CNM_007294%2CNM_000059%2CNM_005228%2CNM_004985%2CNM_005343%2CNM_002524%2CNM_004333%2CNM_002755%2CNM_002745&rettype=gb&retmode=xml&tool=primer-studio-benchmark",
+      "retrieved_at": "2026-09-15T14:27:54.829729+00:00",
+      "sha256_xml": "57a80711ce52b4c14aafef636113b66936e537ee519b0731ee0936920b3057f1"
+    },
+    {
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NM_002746%2CNM_005163%2CNM_001626%2CNM_000314%2CNM_006218%2CNM_004958%2CNM_000038%2CNM_001904%2CNM_005359%2CNM_003242&rettype=gb&retmode=xml&tool=primer-studio-benchmark",
+      "retrieved_at": "2026-09-15T14:28:00.740264+00:00",
+      "sha256_xml": "d0cda2e6bc61808b9bc7bd9ea026dc28bb3c77ddd2be4e9889afc5183690a449"
+    },
+    {
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NM_000321%2CNM_000389%2CNM_000077%2CNM_053056%2CNM_001798%2CNM_000075%2CNM_002467%2CNM_000633%2CNM_004324%2CNM_004346&rettype=gb&retmode=xml&tool=primer-studio-benchmark",
+      "retrieved_at": "2026-09-15T14:28:05.613080+00:00",
+      "sha256_xml": "62a2aaf5d7b3d8e32441b03ff3063607e0ff4ebb80333099bf0aa6f7e22e3c34"
+    },
+    {
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NM_002046%2CNM_001101%2CNM_000194%2CNM_003194%2CNM_001002%2CNM_021130%2CNM_000402%2CNM_000291%2CNM_005566%2CNM_004168&rettype=gb&retmode=xml&tool=primer-studio-benchmark",
+      "retrieved_at": "2026-09-15T14:28:11.522145+00:00",
+      "sha256_xml": "b0d2edabbbcda718bcf260c795eb18956138c06b05ec04bf6e280432eda2fa23"
+    },
+    {
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NM_001530%2CNM_003376%2CNM_000600%2CNM_000594%2CNM_000619%2CNM_007315%2CNM_003150%2CNM_002227%2CNM_004972%2CNM_003998&rettype=gb&retmode=xml&tool=primer-studio-benchmark",
+      "retrieved_at": "2026-09-15T14:29:22.770857+00:00",
+      "sha256_xml": "8f7c9978b38751978bf5cfb3ff119889531f90fd29d63cde399bd642f33d0b88"
+    },
+    {
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NM_021975%2CNM_006164%2CNM_012289%2CNM_000454%2CNM_000636%2CNM_001752%2CNM_000581%2CNM_000051%2CNM_001184%2CNM_007194&rettype=gb&retmode=xml&tool=primer-studio-benchmark",
+      "retrieved_at": "2026-09-15T14:29:27.582283+00:00",
+      "sha256_xml": "cf7b0d8bb0415c56b4f729ed0a4395172fb6f0e67cb0fcde28e87f5f2e7d15db"
+    }
+  ],
+  "excluded": []
+}

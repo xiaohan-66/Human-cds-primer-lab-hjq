@@ -1,20 +1,59 @@
-<p align="center"><img src="docs/assets/cover.svg" width="100%" alt="棱序 Primer Studio — 让引物设计有据可循，让实验准备井然有序" /></p>
-
 <div align="center">
 
-## 棱序 Primer Studio · 人源完整 CDS 引物设计
+# 棱序 · Primer Studio
 
-**让引物设计有据可循，让实验准备井然有序。**
+**A human CDS primer design workbench that reconstructs potential PCR amplicons from BLAST binding sites.**
 
-人源转录本检索 · 完整 CDS 引物设计 · 批量质量筛查 · 配对特异性分析
+让引物设计有据可循，让实验准备井然有序。
 
-**[打开棱序·高通量 ↗](https://human-cds-primer-throughput-lab.lwhjq6666.chatgpt.site/)**
+[![CI](https://github.com/xiaohan-66/Human-cds-primer-lab-hjq/actions/workflows/ci.yml/badge.svg)](https://github.com/xiaohan-66/Human-cds-primer-lab-hjq/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-17858a.svg)](LICENSE)
+[![Panel: 60 human genes](https://img.shields.io/badge/Benchmark-60_human_genes-245c87.svg)](benchmarks/results/REPORT.md)
 
-[项目介绍](#introduction)　/　[界面演示](#interface-gallery)　/　[设计流程](#workflow)　/　[快速开始](#quickstart)　/　[代码导览](#code-guide)　/　[验证说明](#verification)
+**[Live Demo ↗](https://human-cds-primer-throughput-lab.lwhjq6666.chatgpt.site/)** · [Single gene](https://human-cds-primer-throughput-lab.lwhjq6666.chatgpt.site/single) · [Small batch](https://human-cds-primer-batch-lab.lwhjq6666.chatgpt.site/) · [Benchmark](#benchmark)
+
+<img src="docs/assets/demo-tour.gif" width="100%" alt="20-second screenshot tour: workbench, parameters, candidates, BLAST selection and specificity report" />
+
+<sub>20 秒真实截图导览：5 个界面，各展示 4 秒；并非连续操作录屏。保留不同基因示例与覆盖度提示。</sub>
+
+**Human RefSeq → Full-CDS primer design → F/R BLAST hits → Potential amplicons → Review & CSV**
+
+[项目介绍](#introduction) · [界面演示](#interface-gallery) · [配对算法](#pairing-algorithm) · [快速开始](#quickstart) · [代码导览](#code-guide) · [评级说明](#specificity-grades)
 
 <sub>TypeScript · React 19 · vinext · Cloudflare Workers · D1</sub>
 
 </div>
+
+<a id="pairing-algorithm"></a>
+
+## 从命中位点重建潜在 PCR 产物
+
+**F/R BLAST hits → reconstructed potential amplicons** 是本项目的核心分析步骤。单条引物命中不能直接说明会形成扩增产物：程序将 BLAST 比对归一化为结合位点，按同一模板归组，检查相向方向、结合位置和产物范围，重建 F–R、F–F、R–R 潜在组合。
+
+| 分析步骤 | 可复核的输出 |
+|:--|:--|
+| 位点归一化 | 模板 accession、方向、坐标、错配与比对覆盖 |
+| 同模板配对 | 相向组合与预测产物区间；长度 = 末端坐标 − 起始坐标 + 1 |
+| 产物归属 | 预期目标、同基因其他转录本、其他基因或归属待确认 |
+| 结果解释 | 启发式 A–D 等级、目标模板校验、独立的搜索覆盖度提示 |
+
+实现见 [pair-engine.ts](lib/blast/pair-engine.ts) 与 [pair-classification.ts](lib/blast/pair-classification.ts)。这是基于已返回位点的计算重建；检索遗漏、局部比对与配对上限会限制结论。当前 benchmark 检查候选设计，不构成该算法的特异性准确率验证。
+
+<a id="benchmark"></a>
+
+## 60 个真实人源基因 · 公开结果
+
+| 任务 | 返回候选的基因 | 候选对数 | 无候选 / 拒绝处理 |
+|:--|:--:|:--:|:--:|
+| Studio · 固定 CDS 两端 | 38 / 60 | 176 | 19 / 3 |
+| Primer3 · 固定 CDS 两端 | 25 / 60 | 104 | 35 / 0 |
+| Studio · 侧翼自动搜索（独立任务） | 57 / 60 | 285 | 0 / 3 |
+
+**候选产出率不等于准确率。** 固定端点比较使用同一参考序列、长度和 Tm 范围，但两引擎的质量筛选规则不同；侧翼搜索不能与固定端点直接比较。565 对候选通过序列、坐标和基本约束检查。所有失败均保留，未用其他基因替换。
+
+[实验协议与复现](benchmarks/README.md) · [完整报告](benchmarks/results/REPORT.md) · [逐基因结果](benchmarks/results/per-gene.csv) · [原始参考记录](benchmarks/data/records.json)
+
+**验证进度：**Primer3 本地比较已完成；官方 Primer-BLAST 比较、评级阈值校准和湿实验验证尚未完成。[Primer-BLAST 待核查清单](benchmarks/results/primer-blast-review.csv)只记录待办，不代表已通过验证。
 
 ---
 
@@ -225,7 +264,9 @@ npm run build
 
 <a id="specificity-grades"></a>
 
-### 引物特异性评级说明
+### Primer Studio Specificity Grade (heuristic)
+
+**棱序特异性启发式评级**：A–D 是本工具的规则分级，不是 NCBI 官方等级，也不是经验证的扩增概率。当前阈值尚未通过 benchmark 或湿实验校准；后续将使用独立标注、留出基因及实验结果评估和调整，详见 [校准计划](benchmarks/README.md)。
 
 完成引物配对分析后，工具依据**本次返回并已分析的潜在 PCR 产物**给出 A–D 级结果。分析包括 F–R、F–F 与 R–R 组合；评级与“搜索覆盖度”分别展示，需结合阅读。
 

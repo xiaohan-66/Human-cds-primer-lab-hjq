@@ -45,3 +45,6 @@ site-build.tar.gz
 
 /.sites-runtime/
 /tsconfig.tsbuildinfo
+.biopython-cache/
+.benchmark-deps/
+benchmarks/tmp/
