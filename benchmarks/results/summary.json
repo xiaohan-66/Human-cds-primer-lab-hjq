@@ -30,7 +30,15 @@
     "selection": "60 fixed-accession convenience genes; not random/genome representative",
     "records": 60,
     "unique_genes": 60,
-    "primer_blast": "not_run",
+    "primer_blast": {
+      "panel_genes": 60,
+      "submitted_pairs": 57,
+      "completed": 57,
+      "no_candidate": 3,
+      "unresolved": 0,
+      "expected_detected": 57,
+      "with_additional_products": 49
+    },
     "wet_lab": "not_run",
     "invalid_returned_pairs": 0,
     "record_sha256": "b7e390884525ce2e99a58e27fabcff56407f607bfda9c70f2f3b6a35f0da444a"

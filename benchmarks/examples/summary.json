@@ -1,0 +1,38 @@
+{
+  "selection": "Post hoc: first 60 genes in evaluated input order with candidates in all three arms. Curated examples, not a performance estimate.",
+  "evaluated_genes": 157,
+  "eligible_genes": 67,
+  "selected_genes": 60,
+  "checked_pairs": 842,
+  "selected": {
+    "studio_exact": {
+      "with_candidates": 60,
+      "total": 60,
+      "pairs": 281
+    },
+    "primer3_exact": {
+      "with_candidates": 60,
+      "total": 60,
+      "pairs": 261
+    },
+    "studio_adaptive": {
+      "with_candidates": 60,
+      "total": 60,
+      "pairs": 300
+    }
+  },
+  "whole_evaluated_pool": {
+    "studio_exact": {
+      "with_candidates": 106,
+      "total": 157
+    },
+    "primer3_exact": {
+      "with_candidates": 67,
+      "total": 157
+    },
+    "studio_adaptive": {
+      "with_candidates": 154,
+      "total": 157
+    }
+  }
+}

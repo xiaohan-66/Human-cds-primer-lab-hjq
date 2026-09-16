@@ -3,7 +3,9 @@ import {performance} from 'node:perf_hooks';
 import {designTranscript} from '../../lib/primer.ts';
 import {settings,defaults,five} from '../../lib/batch/core.ts';
 import {adaptiveDesign} from '../../lib/batch/adaptive.ts';
-const records=JSON.parse(fs.readFileSync('benchmarks/data/records.json','utf8'));
+const inputPath=process.env.PRIMER_BENCHMARK_RECORDS || 'benchmarks/data/records.json';
+const outputDir=process.env.PRIMER_BENCHMARK_OUT || 'benchmarks/results';
+const records=JSON.parse(fs.readFileSync(inputPath,'utf8'));
 const onlyExact=process.argv.includes('--exact-only');
 const results=[];
 for(const record of records){
@@ -19,5 +21,5 @@ for(const record of records){
   }
   console.log(record.gene,results.at(-1).status);
 }
-fs.mkdirSync('benchmarks/results',{recursive:true});
-fs.writeFileSync('benchmarks/results/studio.json',JSON.stringify({node:process.version,generated_at:new Date().toISOString(),results},null,2)+'\n');
+fs.mkdirSync(outputDir,{recursive:true});
+fs.writeFileSync(`${outputDir}/studio.json`,JSON.stringify({node:process.version,generated_at:new Date().toISOString(),results},null,2)+'\n');

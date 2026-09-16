@@ -27,6 +27,7 @@ jobs:
       - run: node --import ./tests/register.mjs --experimental-transform-types benchmarks/scripts/run_studio.mjs
       - run: python benchmarks/scripts/run_primer3.py
       - run: python benchmarks/scripts/summarize.py
+      - run: python benchmarks/scripts/check_primer_blast_parser.py
       - uses: actions/upload-artifact@v4
         with:
           name: benchmark-results
@@ -43,6 +44,8 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          if ! gh release view v0.2.0 --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
-            gh release create v0.2.0 --target "$GITHUB_SHA" --prerelease --title 'Primer Studio 0.2.0 · Research preview' --notes-file docs/releases/v0.2.0.md
+          VERSION=$(node -p "require('./package.json').version")
+          [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || exit 1
+          if ! gh release view "v$VERSION" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release create "v$VERSION" --target "$GITHUB_SHA" --prerelease --title "Primer Studio $VERSION · Research preview" --notes-file "docs/releases/v$VERSION.md"
           fi

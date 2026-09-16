@@ -12,7 +12,7 @@ Independent coordinate/sequence/basic-constraint checks: 565 returned pairs; 0 f
 
 **These are candidate-yield measurements, not specificity accuracy or wet-lab success.** Primer3 retains its default structural filters and uses a different Tm implementation; Studio ranks warnings rather than enforcing the same hard exclusions. Adaptive Studio is a separate task and must not be compared directly with exact-CDS Primer3.
 
-Primer-BLAST: **not run**. No agreement, precision, recall, or calibrated A–D thresholds are claimed. The review CSV provides a traceable queue, not completed validation.
+Official Primer-BLAST supplied-pair review: 57 completed reports. See [official report](PRIMER-BLAST.md). This is external review of Studio adaptive leads, not de novo design or a matched pairing-engine accuracy benchmark. No calibrated A–D thresholds are claimed.
 
 ## Rejected biological cases
 

@@ -35,13 +35,13 @@ python benchmarks/scripts/summarize.py
 
 These commands use the committed sequences and require no NCBI requests. They overwrite results with the new run. To intentionally refresh the dataset, run `python benchmarks/scripts/fetch_panel.py`; this changes the reference snapshot, so compare checksums before comparing results. On Windows, install primer3-py into an ASCII-only environment path if its native library cannot load its thermodynamic data from a Unicode path.
 
-## Primer-BLAST comparison: pending
+## Official Primer-BLAST supplied-pair review
 
-No official Primer-BLAST reports have been collected in this release. [The review queue](results/primer-blast-review.csv) contains 57 available Studio adaptive lead pairs and three unavailable cases, **not completed validation**. Links are a convenience: verify all fields in the official form before submission.
+Completed: **57/57 submitted Studio adaptive leads** returned official reports; all 57 contained the expected accession product. The other three genes had no Studio candidate. 49 reports also listed potentially unintended products, which may include same-gene isoforms. This does not mean 57 pairs are uniquely specific or experimentally successful.
 
-For each available pair, use the frozen accession version, both supplied primers, Homo sapiens, RefSeq RNA, maximum target amplicon 20,000 bp and 500 returned target sequences. Record the actual database/date, all mismatch and detection settings, raw report, completion time, expected product, same-gene products and other-gene products. Compare these against Studio reconstruction of the same query conditions; log unavailable records and truncated searches separately. Do not equate a basic BLAST URL API request with an official Primer-BLAST run.
+See the [official review report](results/PRIMER-BLAST.md), [per-gene table](results/primer-blast-summary.csv), [structured results](results/primer-blast-reports.json), and [archived original reports](results/primer-blast-reports.zip). Searches used human RefSeq RNA, a 20,000-bp maximum target product and 500 BLAST target sequences. Submitted and effective mismatch/filter settings are retained per report. Two initial submissions returned HTTP 502; both succeeded on retry and the initial error records remain in the archive.
 
-The queue currently covers Studio leads only. A complete cross-tool study must also retain and evaluate Primer3 leads under the same specificity protocol. Neither agreement rates nor precision/recall can be reported until those reports and a defensible reference annotation exist.
+This arm reviews **supplied Studio adaptive pairs** with the official service. It does not compare de novo Primer-BLAST design yield, does not submit Primer3 lead pairs, and does not establish accuracy of Studio's BLAST-hit pairing engine. A complete matched specificity study still needs equivalent queries, independently annotated products and a held-out evaluation set. A basic BLAST URL API request is not an official Primer-BLAST run.
 
 ## Calibration plan
 

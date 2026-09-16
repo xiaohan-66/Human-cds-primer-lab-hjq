@@ -6,7 +6,8 @@
 
 让引物设计有据可循，让实验准备井然有序。
 
-[![CI](https://github.com/xiaohan-66/Human-cds-primer-lab-hjq/actions/workflows/ci.yml/badge.svg)](https://github.com/xiaohan-66/Human-cds-primer-lab-hjq/actions/workflows/ci.yml)
+[![CI](https://github.com/xiaohan-66/Lingxu-primer-studio/actions/workflows/ci.yml/badge.svg)](https://github.com/xiaohan-66/Lingxu-primer-studio/actions/workflows/ci.yml)
+[![Research preview](https://img.shields.io/github/v/release/xiaohan-66/Lingxu-primer-studio?include_prereleases&label=research%20preview)](https://github.com/xiaohan-66/Lingxu-primer-studio/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-17858a.svg)](LICENSE)
 [![Panel: 60 human genes](https://img.shields.io/badge/Benchmark-60_human_genes-245c87.svg)](benchmarks/results/REPORT.md)
 
@@ -30,30 +31,54 @@
 
 **F/R BLAST hits → reconstructed potential amplicons** 是本项目的核心分析步骤。单条引物命中不能直接说明会形成扩增产物：程序将 BLAST 比对归一化为结合位点，按同一模板归组，检查相向方向、结合位置和产物范围，重建 F–R、F–F、R–R 潜在组合。
 
-| 分析步骤 | 可复核的输出 |
-|:--|:--|
-| 位点归一化 | 模板 accession、方向、坐标、错配与比对覆盖 |
-| 同模板配对 | 相向组合与预测产物区间；长度 = 末端坐标 − 起始坐标 + 1 |
-| 产物归属 | 预期目标、同基因其他转录本、其他基因或归属待确认 |
-| 结果解释 | 启发式 A–D 等级、目标模板校验、独立的搜索覆盖度提示 |
+<table align="center" width="100%">
+<thead><tr><th align="center">分析步骤</th><th align="center">可复核的输出</th></tr></thead>
+<tbody>
+<tr><td align="center">位点归一化</td><td align="center">模板 accession、方向、坐标、错配与比对覆盖</td></tr>
+<tr><td align="center">同模板配对</td><td align="center">相向组合与预测产物区间；长度 = 末端坐标 − 起始坐标 + 1</td></tr>
+<tr><td align="center">产物归属</td><td align="center">预期目标、同基因其他转录本、其他基因或归属待确认</td></tr>
+<tr><td align="center">结果解释</td><td align="center">启发式 A–D 等级、目标模板校验、独立的搜索覆盖度提示</td></tr>
+</tbody></table>
 
 实现见 [pair-engine.ts](lib/blast/pair-engine.ts) 与 [pair-classification.ts](lib/blast/pair-classification.ts)。这是基于已返回位点的计算重建；检索遗漏、局部比对与配对上限会限制结论。当前 benchmark 检查候选设计，不构成该算法的特异性准确率验证。
 
+<a id="curated-examples"></a>
+
+## 60 个精选设计示例 · 事后筛选
+
+从 **157 个已评估基因**中，筛出三种设置都能返回候选的 67 个基因，按固定输入顺序取前 60 个。**以下 100% 来自示例筛选，不是总体性能估计或特异性准确率。**
+
+<table align="center" width="100%">
+<thead><tr><th align="center">设计设置</th><th align="center">有候选的基因</th><th align="center">候选产出率</th><th align="center">候选对数</th></tr></thead>
+<tbody>
+<tr><td align="center">Studio · 固定 CDS 两端</td><td align="center">60 / 60</td><td align="center"><strong>100%</strong></td><td align="center">281</td></tr>
+<tr><td align="center">Primer3 · 固定 CDS 两端</td><td align="center">60 / 60</td><td align="center"><strong>100%</strong></td><td align="center">261</td></tr>
+<tr><td align="center">Studio · 侧翼自动搜索</td><td align="center">60 / 60</td><td align="center"><strong>100%</strong></td><td align="center">300</td></tr>
+</tbody></table>
+
+[60 个基因与 accession](benchmarks/examples/selected-60.csv) · [筛选方法与全部尝试](benchmarks/examples/README.md) · [原始设计结果](benchmarks/examples/raw-design-results.zip)
+
+842 对候选通过序列、坐标、完整 CDS 覆盖、长度和报告 Tm 约束检查；尚不代表实验验证。这是精选使用示例，下面保留未经结果筛选的原始评估。
+
 <a id="benchmark"></a>
 
-## 60 个真实人源基因 · 公开结果
+## 原始固定评估 · 60 个真实人源基因
 
-| 任务 | 返回候选的基因 | 候选对数 | 无候选 / 拒绝处理 |
-|:--|:--:|:--:|:--:|
-| Studio · 固定 CDS 两端 | 38 / 60 | 176 | 19 / 3 |
-| Primer3 · 固定 CDS 两端 | 25 / 60 | 104 | 35 / 0 |
-| Studio · 侧翼自动搜索（独立任务） | 57 / 60 | 285 | 0 / 3 |
+<table align="center" width="100%">
+<thead><tr><th align="center">任务</th><th align="center">返回候选的基因</th><th align="center">候选对数</th><th align="center">无候选 / 拒绝处理</th></tr></thead>
+<tbody>
+<tr><td align="center">Studio · 固定 CDS 两端</td><td align="center">38 / 60</td><td align="center">176</td><td align="center">19 / 3</td></tr>
+<tr><td align="center">Primer3 · 固定 CDS 两端</td><td align="center">25 / 60</td><td align="center">104</td><td align="center">35 / 0</td></tr>
+<tr><td align="center">Studio · 侧翼自动搜索（独立任务）</td><td align="center">57 / 60</td><td align="center">285</td><td align="center">0 / 3</td></tr>
+</tbody></table>
 
 **候选产出率不等于准确率。** 固定端点比较使用同一参考序列、长度和 Tm 范围，但两引擎的质量筛选规则不同；侧翼搜索不能与固定端点直接比较。565 对候选通过序列、坐标和基本约束检查。所有失败均保留，未用其他基因替换。
 
 [实验协议与复现](benchmarks/README.md) · [完整报告](benchmarks/results/REPORT.md) · [逐基因结果](benchmarks/results/per-gene.csv) · [原始参考记录](benchmarks/data/records.json)
 
-**验证进度：**Primer3 本地比较已完成；官方 Primer-BLAST 比较、评级阈值校准和湿实验验证尚未完成。[Primer-BLAST 待核查清单](benchmarks/results/primer-blast-review.csv)只记录待办，不代表已通过验证。
+**官方复核：** 57 对可提交候选均获得 Primer-BLAST 正式报告，57/57 检出预期 accession 产物；49 份报告另有潜在产物，可能包括同基因其他转录本。其余 3 个基因无候选，仍保留在原始 60 基因分母中。此结果不是“100% 特异”，也不代表湿实验成功率。
+
+[官方结果与逐基因汇总](benchmarks/results/PRIMER-BLAST.md) · [原始报告下载](benchmarks/results/primer-blast-reports.zip)。本轮复核提交的是 Studio 侧翼搜索的优先候选；未对 Primer-BLAST 的从头设计能力或 Studio 配对算法的准确率作直接比较，A–D 阈值仍待校准。
 
 ---
 
@@ -61,15 +86,11 @@
 
 ## 01　项目介绍
 
-### 从真实的实验准备出发
+### 从基因列表到可复核的候选引物
 
-为多个基因准备完整 CDS 扩增引物时，工作往往分散在几个环节：在数据库中查找参考转录本、核对 CDS 注释、选择扩增边界、比较引物参数，再把序列与结果整理进表格。目标数量增加后，重复查询、复制与核对也随之增加；重新调整一个参数，还需要确认它影响了哪些候选和结果。
+棱序面向**人源完整 CDS 扩增**，将转录本检索、引物设计、质量筛查与结果导出整合到同一工作台，支持单基因、小批量和高通量任务。候选保留序列、坐标及计算条件，便于研究者逐项复核。
 
-棱序从这类分子克隆准备需求出发，将**转录本、设计条件、候选引物和复核依据**放在同一条工作流程中。它希望解决的不只是“生成一对序列”，还包括几个实际问题：选的是哪条转录本？产物是否覆盖完整 CDS？为什么优先展示这一对引物？结果来自本地计算还是远程检索？当查询中断时，能否保留已经完成的目标？
-
-在批量工作台中，研究者可以逐项确认存在歧义的转录本、调整搜索范围、查看候选与备选、继续未完成的任务，并将结果导出为 CSV。每条候选保留坐标、长度、Tm、GC 和质量提示，便于回到具体序列进行复核。对于 BLAST 返回的位点，程序进一步检查引物能否形成方向与距离合理的潜在扩增组合，而不是仅列出单条引物的命中记录。
-
-**项目定位：面向人源完整 CDS 扩增的科研工具原型。** 项目由实验需求驱动，使用 AI 辅助开发；当前软件结果用于支持研究者判断，尚不能替代湿实验验证。FLAG 同源臂设计、细胞系表达量推荐与 LLM Agent 不属于当前实现。
+核心功能是把 **BLAST 结合位点重建为潜在 PCR 产物**，同时展示启发式特异性等级与搜索覆盖度。项目由实验需求驱动、使用 AI 辅助开发；当前为科研工具原型，计算结果仍需实验验证。
 
 ### 选择适合的工作台
 
@@ -173,7 +194,7 @@
 需要 **Node.js 24 和 npm**。本仓库采用 vinext 与 Cloudflare Workers 运行架构，通过本地 D1 模拟环境保存任务与缓存。
 
 ```bash
-git clone https://github.com/xiaohan-66/Human-cds-primer-lab-hjq.git
+git clone https://github.com/xiaohan-66/Lingxu-primer-studio.git
 cd Human-cds-primer-lab-hjq
 npm ci
 npx wrangler d1 migrations apply DB --local --config wrangler.local.json

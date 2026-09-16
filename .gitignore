@@ -48,3 +48,9 @@ site-build.tar.gz
 .biopython-cache/
 .benchmark-deps/
 benchmarks/tmp/
+
+__pycache__/
+
+/benchmarks/examples/fetch-cache/
+/benchmarks/examples/results/
+/benchmarks/results/primer-blast/
